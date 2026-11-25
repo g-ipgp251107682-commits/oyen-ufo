@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Si Oyen Pencuri Huruf</title>
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#05030f;overflow:hidden}
+body{display:grid;place-items:center;font-family:'Baloo 2','Fredoka','Comic Sans MS','Trebuchet MS',system-ui,sans-serif}
+#st{position:relative;width:min(100vw,177.78vh);aspect-ratio:16/9;overflow:hidden;container-type:size;background:#05030f;user-select:none}
+#cam,.full{position:absolute;inset:0;width:100%;height:100%}
+#cam{background:linear-gradient(var(--s1),var(--s2) 85%)}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twk 3s ease-in-out infinite}
+@keyframes twk{50%{opacity:.2}}
+#moon{position:absolute;left:78%;top:7%;width:8cqw;height:8cqw;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fffbe6,#f3e3a6 70%);box-shadow:0 0 5cqw #fff3b055}
+.cl{position:absolute;width:26cqw;height:6cqw;border-radius:50%;background:#8a6bc9;opacity:.3;filter:blur(1cqw);animation:dr 50s linear infinite alternate}
+@keyframes dr{to{transform:translateX(12cqw)}}
+#glow{position:absolute;left:-5%;top:-15%;width:60%;height:60%;background:radial-gradient(circle,#5dff9a66,transparent 65%);opacity:0;z-index:1}
+#gl{position:absolute;left:0;right:0;bottom:14%;display:flex;justify-content:center;gap:6cqw;z-index:3;color:#d9c8ff;font-family:'Noto Naskh Arabic','Scheherazade New','Amiri','Traditional Arabic',serif;font-size:7cqw}
+#gl span{animation:fl 3s ease-in-out infinite}#gl span:nth-child(2n){animation-delay:-1s}#gl span:nth-child(3n){animation-delay:-2s}
+@keyframes fl{50%{transform:translateY(-1.5cqw) rotate(4deg)}}
+#gr{transform-origin:50% 100%;animation:sw 4s ease-in-out infinite;z-index:4}#gr.s{animation-duration:.3s}
+@keyframes sw{50%{transform:skewX(1.5deg)}}
+#words{position:absolute;left:0;right:0;top:36%;display:flex;justify-content:center;gap:7cqw;align-items:flex-start;z-index:3}
+.col{display:flex;flex-direction:column;align-items:center}.col>*{opacity:0}
+.ill{font-size:9cqw;line-height:1.1}
+.ru{font-size:3.8cqw;font-weight:800;color:#fff;letter-spacing:.2cqw}.ru .hl{display:inline-block}
+.pat{font-size:2.3cqw;color:#cfd8ff;font-weight:700}.pat .k{color:#7fd4ff}.pat .v{color:#ff9fc8}
+.jw{font-family:'Noto Naskh Arabic','Scheherazade New','Amiri','Traditional Arabic','Geeza Pro',Arial,serif;font-size:8cqw;line-height:1.25;color:#fff;direction:rtl;text-shadow:0 0 1.5cqw #9be}
+.hl{color:#ffe14d;text-shadow:0 0 1.6cqw #ffb400}
+.tag{font-size:2cqw;color:#ffe9a8;font-weight:700}
+.fl{position:absolute;transform:translate(-50%,-50%);color:#ffe14d;text-shadow:0 0 2cqw #ffb400;line-height:1;z-index:7;pointer-events:none;direction:rtl}
+.p{position:absolute;width:.7cqw;height:.7cqw;border-radius:50%;background:#bfffd0;box-shadow:0 0 1cqw #6f9;z-index:6}
+.sm{position:absolute;width:3cqw;height:3cqw;border-radius:50%;background:#c4c4d2;z-index:9}
+#ufo{position:absolute;width:20%;left:50%;top:5%;transform:translateX(-50%);z-index:5}
+#ufo::before{content:'';position:absolute;inset:-35%;background:radial-gradient(circle,#7dff9e30,transparent 60%);pointer-events:none}
+#ufo svg{display:block;width:100%;overflow:visible}
+.bob{animation:bob 3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-3%)}}
+#beam{position:absolute;left:50%;top:62%;width:100%;margin-left:-50%;transform-origin:top;transform:scaleY(0);clip-path:polygon(36% 0,64% 0,100% 100%,0 100%);background:linear-gradient(#9dffb8e6,#3dff7a40);mix-blend-mode:screen;opacity:0;transition:opacity .3s,transform .4s}
+#beam.on{opacity:.85;transform:scaleY(1)}#beam.on.sc{opacity:.28}
+#ufo.bk .lt{animation:bk .22s infinite alternate}@keyframes bk{to{fill:#ff5a5a}}
+#oy{transition:transform .3s}#tl{transform-origin:188px 130px;animation:wag 1.6s ease-in-out infinite}
+@keyframes wag{50%{transform:rotate(14deg)}}
+.bl{transform-origin:150px 82px;animation:bln 3.6s infinite}@keyframes bln{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.tL,.tR{animation:tt 4s infinite}.tL{transform-origin:128px 60px}.tR{transform-origin:172px 60px;animation-delay:-2s}
+@keyframes tt{0%,90%,100%{transform:rotate(0)}94%{transform:rotate(-10deg)}}
+#eL{transform-origin:128px 60px}#eR{transform-origin:172px 60px}
+#eL,#eR,#eyes,#lid,.pu,#hd,#pp{transition:transform .25s,opacity .2s}
+#eyes{transform-origin:150px 82px}#hd{transform-origin:150px 118px}.pu{transform-box:fill-box;transform-origin:center}
+#pL,#pR{transform-box:fill-box;transform-origin:center}
+#mO.tk{animation:tk .28s infinite}@keyframes tk{50%{opacity:1}}
+#bub{position:absolute;top:-8%;background:#fff;color:#2b1750;font-weight:800;font-size:2.2cqw;line-height:1.25;padding:1cqw 1.6cqw;border-radius:2cqw;width:max-content;max-width:21cqw;opacity:0;z-index:8;box-shadow:0 .5cqw 1.5cqw #0005}
+#bub.R{left:94%}#bub.L{right:94%}
+#cap{position:absolute;left:50%;bottom:11%;transform:translateX(-50%);width:max-content;max-width:86%;text-align:center;z-index:19;color:#fff;font-weight:700;font-size:2.6cqw;line-height:1.3;background:#0c082d99;border-radius:2cqw;padding:.7cqw 2cqw;text-shadow:0 .2cqw .6cqw #000;opacity:0;pointer-events:none}
+#btn{position:absolute;left:50%;bottom:3.5%;transform:translateX(-50%);z-index:20;display:none;opacity:0;transition:opacity .4s;font:800 2.5cqw 'Baloo 2','Comic Sans MS',system-ui,sans-serif;padding:.7cqw 3cqw;border:0;border-radius:3cqw;background:linear-gradient(#ffd84a,#ff9f1c);color:#3a1d00;box-shadow:0 .4cqw 0 #b8650a,0 0 3cqw #ffb84a88;cursor:pointer;animation:pl 1.3s ease-in-out infinite}
+@keyframes pl{50%{transform:translateX(-50%) scale(1.06)}}
+#end{position:absolute;left:0;right:0;top:44%;text-align:center;z-index:18;color:#fff;font-weight:800;font-size:4.2cqw;text-shadow:0 0 3cqw #b78cff,0 .3cqw .6cqw #000;opacity:0;pointer-events:none}
+#fd{position:absolute;inset:0;background:#05030f;z-index:15;pointer-events:none}
+#ctl{position:absolute;top:1.5%;right:1.5%;z-index:40;display:flex;gap:.8cqw;opacity:.55;transition:opacity .3s}#ctl:hover{opacity:1}
+#ctl button{width:3.6cqw;height:3.6cqw;border-radius:50%;border:0;background:#ffffff30;color:#fff;font-size:1.8cqw;cursor:pointer}
+#poster{position:absolute;inset:0;z-index:30;display:grid;place-content:center;text-align:center;color:#fff;background:#05030f88}
+#poster h1{font-size:6.5cqw;line-height:1.05;text-shadow:0 0 3cqw #b78cff,0 .3cqw 0 #000}#poster p{font-size:2.4cqw;margin:1cqw 0 2cqw;color:#ffe9a8}
+#play{width:9cqw;height:9cqw;margin:auto;border:0;border-radius:50%;background:linear-gradient(#ffd84a,#ff9f1c);font-size:4cqw;color:#3a1d00;cursor:pointer;box-shadow:0 0 4cqw #ffb84a99;padding-left:.6cqw}
+</style></head><body>
+<div id="st">
+<div id="cam">
+<div id="moon"></div><div class="cl" style="left:8%;top:14%"></div><div class="cl" style="left:50%;top:24%;animation-duration:70s"></div>
+<div id="glow"></div>
+<svg class="full" style="z-index:1" viewBox="0 0 1600 900" preserveAspectRatio="none"><path d="M0 640Q300 520 620 620T1240 590T1600 560V900H0Z" fill="var(--h1)"/><g fill="var(--t)"><rect x="150" y="560" width="22" height="130"/><ellipse cx="161" cy="520" rx="85" ry="105"/><rect x="1300" y="540" width="26" height="150"/><ellipse cx="1313" cy="490" rx="100" ry="120"/><rect x="420" y="650" width="14" height="70"/><ellipse cx="427" cy="625" rx="48" ry="62"/><rect x="1130" y="660" width="14" height="60"/><ellipse cx="1137" cy="635" rx="42" ry="55"/></g><path d="M0 730Q400 650 820 710T1600 690V900H0Z" fill="var(--h2)"/></svg>
+<div id="gl"><span>ب</span><span>ک</span><span>ر</span><span>ا</span><span>ي</span><span>م</span></div>
+<div id="words"></div>
+<svg id="gr" class="full" style="height:14%;top:auto;bottom:0" viewBox="0 780 1600 120" preserveAspectRatio="none"><path id="grp" fill="var(--t)"/></svg>
+<div id="ufo"><svg class="bob" viewBox="0 0 300 210"><defs><linearGradient id="sil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eceefa"/><stop offset="1" stop-color="#9aa0bd"/></linearGradient></defs>
+<path d="M62 124C62 22 238 22 238 124Z" fill="#bfe9ff" fill-opacity=".35"/>
+<g id="oy" style="transform:translateY(78px)">
+<path id="tl" d="M188 130Q246 128 232 84Q227 66 244 60" fill="none" stroke="#f59a2f" stroke-width="13" stroke-linecap="round"/>
+<ellipse cx="150" cy="132" rx="36" ry="30" fill="#f59a2f" stroke="#8a4a10" stroke-width="3"/>
+<g id="hd">
+<g class="tL"><g id="eL"><polygon points="108,70 112,32 144,56" fill="#f59a2f" stroke="#8a4a10" stroke-width="3" stroke-linejoin="round"/><polygon points="116,60 118,43 134,55" fill="#f7a3a3"/></g></g>
+<g class="tR"><g id="eR"><polygon points="192,70 188,32 156,56" fill="#f59a2f" stroke="#8a4a10" stroke-width="3" stroke-linejoin="round"/><polygon points="184,60 182,43 166,55" fill="#f7a3a3"/></g></g>
+<ellipse cx="150" cy="88" rx="48" ry="38" fill="#f59a2f" stroke="#8a4a10" stroke-width="3"/>
+<path d="M150 52v14M137 54l3 11M163 54l-3 11M103 84h13M105 94h11M197 84h-13M195 94h-11" stroke="#c9660f" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="124" cy="102" rx="17" ry="11" fill="#ffc977"/><ellipse cx="176" cy="102" rx="17" ry="11" fill="#ffc977"/><ellipse cx="150" cy="102" rx="14" ry="10" fill="#ffe7b8"/>
+<g class="bl"><g id="eyes"><ellipse cx="130" cy="82" rx="14" ry="16" fill="#fff" stroke="#8a4a10" stroke-width="2"/><ellipse cx="170" cy="82" rx="14" ry="16" fill="#fff" stroke="#8a4a10" stroke-width="2"/>
+<g id="pp"><ellipse class="pu" cx="132" cy="84" rx="7" ry="11" fill="#2a1608"/><ellipse class="pu" cx="168" cy="84" rx="7" ry="11" fill="#2a1608"/><circle cx="135" cy="79" r="3" fill="#fff"/><circle cx="171" cy="79" r="3" fill="#fff"/></g>
+<g id="lid" opacity="0"><path d="M115 66h30v13h-30zM155 66h30v13h-30z" fill="#f59a2f"/><path d="M115 79h30M155 79h30" stroke="#8a4a10" stroke-width="3"/></g></g></g>
+<path d="M144 95h12l-6 7z" fill="#f27a8c"/>
+<path id="mo" d="M150 102v3M150 105q-7 7-13 1M150 105q7 7 13 1" fill="none" stroke="#5a2d0c" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse id="mO" cx="150" cy="112" rx="8" ry="9" fill="#6b1d1d" opacity="0"/>
+<path d="M104 98l-28-6M104 104l-28 4M196 98l28-6M196 104l28 4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+</g></g>
+<path d="M56 150Q150 222 244 150Z" fill="#6a4cc0" stroke="#2f2158" stroke-width="5" stroke-linejoin="round"/>
+<ellipse cx="150" cy="138" rx="142" ry="34" fill="url(#sil)" stroke="#2f2158" stroke-width="5"/>
+<path d="M14 142Q150 192 286 142" fill="none" stroke="#7c5ce0" stroke-width="12" opacity=".85"/>
+<g stroke="#2f2158" stroke-width="3"><circle class="lt" cx="48" cy="146" r="8" fill="#ffd84a"/><circle class="lt" cx="98" cy="158" r="8" fill="#ffd84a"/><circle class="lt" cx="150" cy="163" r="8" fill="#ffd84a"/><circle class="lt" cx="202" cy="158" r="8" fill="#ffd84a"/><circle class="lt" cx="252" cy="146" r="8" fill="#ffd84a"/></g>
+<g id="pw" opacity="0" stroke="#8a4a10" stroke-width="2.5" fill="#f59a2f"><ellipse id="pL" cx="122" cy="112" rx="12" ry="8"/><ellipse id="pR" cx="178" cy="112" rx="12" ry="8"/></g>
+<circle cx="150" cy="116" r="6" fill="#e03a3a" stroke="#2f2158" stroke-width="2"/>
+<path d="M62 124C62 22 238 22 238 124" fill="none" stroke="#2f2158" stroke-width="5"/>
+<path d="M84 90C88 56 112 40 140 36" stroke="#fff" stroke-opacity=".7" stroke-width="6" stroke-linecap="round" fill="none"/></svg>
+<div id="beam"></div><div id="bub" class="R"></div></div>
+</div>
+<div id="end">Setiap huruf Jawi mempunyai rahsianya!</div>
+<div id="cap"></div><button id="btn"></button><div id="fd"></div>
+<div id="ctl"><button id="b1" title="Jeda">⏸</button><button id="b2" title="Ulang">↻</button><button id="b3" title="Senyap">🔊</button></div>
+<div id="poster"><h1>Si Oyen<br>Pencuri Huruf</h1><p>Jawi Tahun 2</p><button id="play" title="Mula">▶</button></div>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const st=$('#st'),cam=$('#cam'),U=$('#ufo'),oy=$('#oy'),hd=$('#hd'),W=$('#words'),cap=$('#cap'),btn=$('#btn'),bub=$('#bub'),bm=$('#beam'),fd=$('#fd'),pL=$('#pL'),pR=$('#pR'),pw=$('#pw'),gr=$('#gr');
+/* Rakaman suara sendiri (pilihan): isi mis. {bas:'audio/bas.mp3',kera:'audio/kera.mp3'} */
+const VOICE={};
+window.onunhandledrejection=e=>e.preventDefault();
+let tok=0,paused=false,mute=false,camS=1,AC,M,live=0;
+/* ---------- masa & animasi ---------- */
+const sleep=ms=>new Promise((ok,no)=>{const m=tok;let t=0,l=performance.now();const f=n=>{if(m!==tok)return no('x');if(!paused)t+=n-l;l=n;t>=ms?ok():requestAnimationFrame(f)};requestAnimationFrame(f)});
+function tw(e,p,ms=600,ez='ease-in-out',fr={}){const c=getComputedStyle(e),a={},b={};for(const k in p){a[k]=fr[k]??c[k];b[k]=p[k]}e.animate([a,b],{duration:ms,easing:ez});Object.assign(e.style,p)}
+const go=(e,k,o)=>e.animate(k,o),op=(e,v,ms=500)=>tw(e,{opacity:v},ms);
+const zm=(s,x=50,y=50,ms=900)=>{if(camS===1)cam.style.transformOrigin=x+'% '+y+'%';camS=s;tw(cam,{transform:`scale(${s})`},ms);return sleep(ms)};
+const T=(r,s=1)=>`translate(-50%,-50%) rotate(${r}deg) scale(${s})`;
+const hl=s=>s.replace(/\[(.+?)\]/g,'<span class="hl">$1</span>');
+function pos(e){const s=st.getBoundingClientRect(),r=e.getBoundingClientRect();return{x:(r.left+r.width/2-s.left)/s.width*100,y:(r.top+r.height/2-s.top)/s.height*100}}
+const ux=()=>parseFloat(U.style.left),uy=()=>parseFloat(U.style.top)+U.offsetHeight/st.clientHeight*62;
+const fly=(x,y,ms,s=1)=>{tw(U,{left:x+'%',top:y+'%',scale:s},ms);bub.className=x>52?'L':'R'};
+const closeup=()=>zm(1.6,ux(),parseFloat(U.style.top)+12,1000);
+/* ---------- bunyi ---------- */
+function ac(){if(!AC){AC=new(window.AudioContext||window.webkitAudioContext)();M=AC.createGain();M.connect(AC.destination)}AC.resume()}
+function tn(f,d,o={}){if(!AC)return;const{t='sine',v=.12,to=f,dl=0}=o,x=AC.createOscillator(),g=AC.createGain(),n=AC.currentTime+dl;x.type=t;x.frequency.setValueAtTime(f,n);x.frequency.exponentialRampToValueAtTime(Math.max(to,20),n+d);g.gain.setValueAtTime(0,n);g.gain.linearRampToValueAtTime(v,n+.02);g.gain.exponentialRampToValueAtTime(.001,n+d);x.connect(g);g.connect(M);x.start(n);x.stop(n+d+.05)}
+function ns(d,f0,f1,v=.2){if(!AC)return;const n=AC.sampleRate*d,b=AC.createBuffer(1,n,AC.sampleRate),a=b.getChannelData(0);for(let i=0;i<n;i++)a[i]=Math.random()*2-1;const s=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain(),t=AC.currentTime;s.buffer=b;f.type='bandpass';f.Q.value=4;f.frequency.setValueAtTime(f0,t);f.frequency.exponentialRampToValueAtTime(f1,t+d);g.gain.setValueAtTime(v,t);g.gain.linearRampToValueAtTime(0,t+d);s.connect(f);f.connect(g);g.connect(M);s.start()}
+let lm=0;const sfx={fly:()=>{tn(80,2.2,{v:.08,to:150});tn(160,2.2,{t:'triangle',v:.03,to:260})},laser:()=>{tn(1300,.5,{t:'sawtooth',v:.06,to:300});tn(180,1,{t:'square',v:.03})},suck:()=>ns(1.4,300,2600,.22),meow:()=>{if(!AC||performance.now()-lm<800)return;lm=performance.now();const t=AC.currentTime,o=AC.createOscillator(),f=AC.createBiquadFilter(),g=AC.createGain();o.type='sawtooth';o.frequency.setValueAtTime(420,t);o.frequency.linearRampToValueAtTime(820,t+.18);o.frequency.linearRampToValueAtTime(480,t+.65);f.type='bandpass';f.Q.value=3;f.frequency.setValueAtTime(900,t);f.frequency.linearRampToValueAtTime(1800,t+.25);f.frequency.linearRampToValueAtTime(900,t+.65);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.22,t+.06);g.gain.linearRampToValueAtTime(.18,t+.4);g.gain.linearRampToValueAtTime(0,t+.7);o.connect(f);f.connect(g);g.connect(M);o.start(t);o.stop(t+.75)},purr:()=>{if(!AC)return;const d=1.8,n=AC.sampleRate*d,b=AC.createBuffer(1,n,AC.sampleRate),a=b.getChannelData(0);for(let i=0;i<n;i++)a[i]=Math.random()*2-1;const s=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain(),l=AC.createOscillator(),lg=AC.createGain(),t=AC.currentTime;s.buffer=b;f.type='bandpass';f.frequency.value=180;f.Q.value=1.5;g.gain.setValueAtTime(.14,t);g.gain.linearRampToValueAtTime(0,t+d);l.frequency.value=24;lg.gain.value=.12;l.connect(lg);lg.connect(g.gain);s.connect(f);f.connect(g);g.connect(M);s.start();l.start();l.stop(t+d)},ping:()=>{tn(900,.2,{v:.1,to:1500})},happy:()=>{lm=0;sfx.meow();setTimeout(()=>sfx.purr(),500);[0,.22,.44].forEach((d,i)=>tn(700+i*120,.2,{t:'triangle',v:.09,to:1100+i*150,dl:d}))},grr:()=>{tn(75,1.3,{t:'sawtooth',v:.1,to:55});tn(150,1.3,{t:'square',v:.03,to:110});ns(1.3,250,120,.25)},pop:()=>tn(500,.12,{v:.08,to:900}),click:()=>tn(700,.08,{t:'square',v:.06,to:400}),fail:()=>{tn(420,.9,{t:'sawtooth',v:.08,to:50});ns(.9,900,100,.2)}};
+function loops(){if(live)return;live=1;setInterval(()=>{if(!AC||paused||mute)return;for(let i=0;i<3;i++)tn(4300,.05,{t:'square',v:.01,dl:i*.09})},1400);const sc=[220,262,294,330,392,440];let k=0;setInterval(()=>{if(!AC||paused||mute)return;k=(k+[1,2,-1,3][Math.random()*4|0]+6)%6;tn(sc[k],.6,{t:'triangle',v:.025});if(k%2)tn(sc[k]/2,.9,{t:'sine',v:.02})},560)}
+function say(k){if(mute)return;if(VOICE[k]){new Audio(VOICE[k]).play();return}const ss=window.speechSynthesis;if(!ss)return;const v=ss.getVoices().find(x=>/^ms/i.test(x.lang));if(!v)return;const u=new SpeechSynthesisUtterance(k);u.voice=v;u.lang='ms-MY';u.rate=.75;ss.cancel();ss.speak(u)}
+/* ---------- Si Oyen ---------- */
+const SM='M150 102v3M150 105q-7 7-13 1M150 105q7 7 13 1';
+const E={n:[1,0,1,SM,0,0,0],sly:[1,1,1,'M150 102v3M150 105q-7 6-13 0M150 105q9 8 17-3',0,0,0],happy:[.4,0,1,SM,1,0,0],shock:[1.15,0,.55,SM,1,0,0],sad:[1,0,1,'M150 105q-7-7-13 0M150 105q7-7 13 0',0,22,0],puz:[1,0,1,'M150 106q-6-3-12 0q6 3 12 0',0,22,10],up:[1.05,0,1,SM,0,-6,0]};
+function face(k){const[a,l,p,m,o,ea,t]=E[k];$('#eyes').style.transform=`scaleY(${a})`;$('#lid').style.opacity=l;$$('.pu').forEach(x=>x.style.transform=`scale(${p})`);$('#mo').setAttribute('d',m);$('#mO').style.opacity=o;$('#eL').style.transform=`rotate(${-ea}deg)`;$('#eR').style.transform=`rotate(${ea}deg)`;hd.style.transform=`rotate(${t}deg)`}
+const look=d=>$('#pp').style.transform=`translateX(${d}px)`;
+const wag=s=>$('#tl').style.animationDuration=s+'s';
+const paw=()=>go(pR,[{transform:'translate(0,0)'},{transform:'translate(-12px,-14px)'}],{duration:500,fill:'forwards'});
+const press=()=>{go(pR,[{transform:'translate(0,0)'},{transform:'translate(-28px,3px)'},{transform:'translate(0,0)'}],{duration:600});sfx.click()};
+const hug=()=>{go(oy,[{transform:'translateY(0)'},{transform:'translateY(-7px)'},{transform:'translateY(0)'}],{duration:400,iterations:3});[pL,pR].forEach(p=>go(p,[{transform:'translateY(0)'},{transform:'translateY(-16px) scale(1.15)'},{transform:'translateY(0)'}],{duration:1200}))};
+const rub=()=>{go(pL,[{transform:'translateX(0)'},{transform:'translateX(22px)'}],{duration:250,iterations:6,direction:'alternate'});go(pR,[{transform:'translateX(0)'},{transform:'translateX(-22px)'}],{duration:250,iterations:6,direction:'alternate'})};
+const wave=()=>go(pR,[{transform:'rotate(-25deg) translateY(-14px)'},{transform:'rotate(25deg) translateY(-14px)'}],{duration:250,iterations:8,direction:'alternate'});
+const jig=(e,ms)=>go(e,[{transform:'translateX(-.7cqw)'},{transform:'translateX(.7cqw)'}],{duration:70,iterations:ms/70,direction:'alternate'});
+const shake=(e,ms)=>go(e,[{translate:'-.6cqw 0'},{translate:'.6cqw 0'}],{duration:60,iterations:ms/60,direction:'alternate'});
+const pulse=e=>go(e,[{textShadow:'0 0 0 #ffb400'},{textShadow:'0 0 3cqw #ffb400'}],{duration:350,iterations:6,direction:'alternate'});
+function smoke(){for(let i=0;i<6;i++){const d=document.createElement('i');d.className='sm';d.style.cssText=`left:${ux()+(Math.random()-.5)*6}%;top:${parseFloat(U.style.top)+3}%;opacity:0`;cam.append(d);d.animate([{opacity:.8,transform:'translateY(0) scale(.6)'},{opacity:0,transform:'translateY(-9cqw) scale(2.2)'}],{duration:1900,delay:i*220}).onfinish=()=>d.remove()}}
+async function talk(t,ms){bub.textContent=t;op(bub,1,250);$('#mO').classList.add('tk');await sleep(ms);$('#mO').classList.remove('tk');op(bub,0,250);await sleep(300)}
+async function note(t,ms){cap.innerHTML=t;op(cap,1,400);await sleep(ms);op(cap,0,400);await sleep(450)}
+function wait(t){return new Promise(ok=>{btn.textContent=t;btn.style.display='block';requestAnimationFrame(()=>btn.style.opacity=1);btn.onclick=()=>{if(paused)return;sfx.click();btn.style.opacity=0;setTimeout(()=>btn.style.display='none',400);ok()}})}
+async function cut(fn){op(fd,1,700);await sleep(800);fn();await sleep(200);op(fd,0,900);await sleep(300)}
+function beam(on,gy=80){if(on)bm.style.height=(st.clientHeight*gy/100-U.offsetTop-U.offsetHeight*.62)+'px';bm.classList.toggle('on',on);U.classList.toggle('bk',on);gr.classList.toggle('s',on)}
+/* ---------- huruf disedut ---------- */
+function mk(el){const p=pos(el),c=document.createElement('div'),s=getComputedStyle(el);c.className='fl';c.textContent=el.textContent;c.style.cssText=`left:${p.x}%;top:${p.y}%;font-size:${s.fontSize};font-family:${s.fontFamily};font-weight:${s.fontWeight};transform:${T(0)}`;cam.append(c);return c}
+function spark(x,y){for(let i=0;i<16;i++){const d=document.createElement('i');d.className='p';d.style.cssText=`left:${x+(Math.random()-.5)*10}%;top:${y+Math.random()*4}%`;cam.append(d);d.animate([{opacity:1,transform:'scale(1)'},{left:ux()+'%',top:uy()+'%',opacity:0,transform:'scale(.2)'}],{duration:900+Math.random()*700,delay:Math.random()*600,easing:'ease-in'}).onfinish=()=>d.remove()}}
+async function steal(el){const p=pos(el),c=mk(el);el.style.visibility='hidden';spark(p.x,p.y);sfx.suck();
+go(c,[{transform:T(-8)},{transform:T(8)}],{duration:90,iterations:11,direction:'alternate'});await sleep(1000);
+tw(c,{top:(p.y-9)+'%',transform:T(30)},800,'ease-out',{transform:T(0)});await sleep(800);
+tw(c,{left:ux()+'%',top:uy()+'%',transform:T(750,.2),opacity:.2},1100,'ease-in',{transform:T(30)});await sleep(1100);c.remove()}
+async function giveBack(el){const p=pos(el),c=mk(el);c.style.left=ux()+'%';c.style.top=uy()+'%';c.style.transform=T(0,.2);c.style.opacity=.2;sfx.pop();
+tw(c,{left:p.x+'%',top:p.y+'%',transform:T(-360),opacity:1},1000,'ease-out',{transform:T(0,.2)});await sleep(1000);el.style.visibility='visible';c.remove()}
+/* ---------- perkataan di skrin ---------- */
+const P=(a,b,c)=>`${a} + ${b} + ${c}`;
+const SV=(b)=>`<svg viewBox="0 0 100 100" style="width:1em;height:1em;display:block">${b}</svg>`;
+const RAK=SV('<rect x="10" y="10" width="80" height="80" rx="4" fill="#a56a35"/><rect x="16" y="16" width="68" height="30" fill="#5b361a"/><rect x="16" y="54" width="68" height="30" fill="#5b361a"/><path d="M22 46V24h8v22zM44 46V26h8v20zM60 84V62h8v22z" fill="#ffd84a"/><path d="M33 46V20h8v26zM71 84V58h8v26z" fill="#ff7a9a"/>');
+const MEJA=SV('<rect x="8" y="34" width="84" height="12" rx="3" fill="#c98a4b"/><rect x="16" y="46" width="8" height="42" fill="#a56a35"/><rect x="76" y="46" width="8" height="42" fill="#a56a35"/>');
+const EKOR=SV('<path d="M22 88Q8 44 44 38Q74 32 80 12" stroke="#f59a2f" stroke-width="15" fill="none" stroke-linecap="round"/><path d="M79 18L80 12" stroke="#8a4a10" stroke-width="15" stroke-linecap="round"/>');
+const B2=[{i:'🚌',r:'Bas',p:P('b','a','s'),t:'ب[ا]س',f:'بس',k:'bas'},{i:'💳',r:'Kad',p:P('k','a','d'),t:'ک[ا]د',f:'کد',k:'kad'},{i:RAK,r:'Rak',p:P('r','a','k'),t:'ر[ا]ق',f:'رق',k:'rak'}];
+const K=[{i:'🐒',r:'K[e]ra',t:'کرا',k:'kera'},{i:'🥥',r:'K[e]lapa',t:'کلاڤا',k:'kelapa'}];
+const EM=[{i:'👩',r:'[E]mak',t:'[ا]مق',k:'emak'},{i:'<b style="color:#ffd84a">6</b>',r:'[E]nam',t:'[ا]نم',k:'enam'}];
+const B4=[{i:MEJA,r:'M[e]ja',t:'م[ي]جا',k:'meja'},{i:'🫖',r:'T[e]ko',t:'ت[ي]کو',k:'teko'},{i:EKOR,r:'[E]kor',t:'ا[ي]کور',k:'ekor'}];
+async function showWords(L,o={}){W.style.opacity=1;
+W.innerHTML=L.map(w=>`<div class=col><div class=ill>${w.i}</div><div class=ru>${hl(w.r)}</div>${o.pat?`<div class=pat>${w.p}</div>`:''}<div class=jw>${hl(w.t)}</div>${o.tag?'<div class=tag>ejaan percubaan</div>':''}</div>`).join('');
+for(const s of['.ill','.ru','.pat','.jw','.tag']){if(s=='.jw'&&o.nojw)continue;const es=$$('#words '+s);if(!es.length)continue;es.forEach(e=>{e.style.transform='translateY(2cqw)';tw(e,{opacity:1,transform:'translateY(0)'},600,'ease-out')});sfx.pop();await sleep(o.gap||700)}}
+/* ---------- latar ---------- */
+const SC={night:['#0d1040','#4b2a85','#2a1f5c','#1c1648','#150f3a'],forest:['#06232f','#1b4c6d','#123c4a','#0b2a36','#07202b'],green:['#08261e','#1d5a49','#1a4d3c','#0f3629','#08241c']};
+const setScene=n=>['--s1','--s2','--h1','--h2','--t'].forEach((v,i)=>st.style.setProperty(v,SC[n][i]));
+function reset(){document.getAnimations().forEach(a=>{if(!(a instanceof CSSAnimation))a.cancel()});W.innerHTML='';$$('.fl,.p,.sm').forEach(x=>x.remove());
+paused=false;$('#b1').textContent='⏸';if(AC)AC.resume();
+cam.style.cssText='';camS=1;U.style.cssText='left:88%;top:14%;opacity:0;scale:.25';U.className='';bm.className='';bm.style.cssText='';bub.style.opacity=0;bub.className='R';
+oy.style.transform='translateY(78px)';hd.style.transform='';pw.style.opacity=0;[pL,pR].forEach(p=>p.style.transform='');
+$('#glow').style.opacity=0;$('#gl').style.opacity=1;$('#end').style.opacity=0;cap.style.opacity=0;btn.style.cssText='';fd.style.opacity=1;face('n');look(0);wag(1.6);setScene('night')}
+/* ---------- cerita ---------- */
+async function story(){reset();loops();
+op(fd,0,1800);await sleep(2600);
+zm(1.12,50,85,7000);op($('#glow'),1,2500);await sleep(3000);
+sfx.fly();op(U,1,800);tw(U,{left:'58%',top:'8%',scale:.6},3500);await sleep(3600);
+zm(1,50,50,1800);fly(50,5,2200);await sleep(2300);
+tw(oy,{transform:'translateY(0px)'},1000,'ease-out');op(pw,1,600);await sleep(1100);
+face('sly');look(-12);await sleep(700);look(12);await sleep(800);look(0);wag(.5);rub();await sleep(1600);
+for(const t of['Meowww...','Shhhh! Jangan bising!','Banyaknya huruf Jawi di sini!','Huruf mana yang boleh Oyen curi?']){await talk(t,t.length>22?2800:1800)}
+beam(true,80);bm.classList.add('sc');sfx.ping();await sleep(1800);bm.classList.remove('sc');beam(false);wag(1.6);
+await sleep(600);
+/* Babak 2: Alif */
+op($('#gl'),0,800);tw(U,{left:'125%'},1500,'ease-in');sfx.fly();await sleep(1600);U.style.left='-25%';await sleep(60);fly(50,5,2000);await sleep(1200);
+for(let i=0;i<1;i++){const w=B2[i];
+ if(i){op(W,0,600);await sleep(800)}
+ await showWords([w],{pat:1,tag:1});
+ const el=$('#words .jw .hl'),p=pos(el);
+ fly(p.x,5,1800);sfx.fly();await sleep(1900);
+ beam(true,p.y);bm.classList.add('sc');sfx.ping();pulse(el);await sleep(1400);bm.classList.remove('sc');beam(false);
+ face('sly');await closeup();paw();await sleep(900);
+ await zm(1,0,0,900);
+ cap.innerHTML='Huhh! Lihat Oyen mencuri huruf Alif...';op(cap,1,400);const q=pos(el);beam(true,q.y+2);press();sfx.laser();await sleep(900);
+ await steal(el);beam(false);face('happy');hug();sfx.happy();await sleep(1400);op(cap,0,400);
+ fly(84,4,1200,.6);
+ const jw=$('#words .jw'),tg=$('#words .tag');tw(jw,{transform:'scaleX(.7)'},500);await sleep(500);jw.innerHTML=w.f;tg.textContent='ejaan yang betul';tg.style.color='#9dffb0';tw(jw,{transform:'scaleX(1)'},500,'ease-out');sfx.ping();say(w.k);await sleep(800);
+ zm(1.3,50,75,900);await sleep(2800);await zm(1,0,0,700);face('n')}
+/* Babak 3: e-pepet */
+op(W,0,600);tw(U,{left:'125%',top:'8%',scale:.7},1800,'ease-in');sfx.fly();await sleep(1800);
+await cut(()=>{setScene('forest');W.innerHTML='';U.style.left='-25%'});
+fly(50,5,2000);sfx.fly();await sleep(2100);
+await pepet(K[0],true);
+op(W,0,600);await sleep(700);
+
+if(0){const a=$('#words .jw .hl'),p=pos(a);say('emak');fly(p.x,5,1800);await sleep(1900);
+ beam(true,p.y);sfx.suck();pulse(a);jig($('#words .jw'),1300);shake(U,1000);face('puz');
+ for(let k=0;k<3;k++){press();await sleep(450)}
+ await sleep(300);sfx.fail();beam(false);await sleep(400);
+ await talk('Meow? Kenapa huruf ini tak boleh dicuri?',3200);face('n');
+ await note('Huruf Alif diperlukan untuk melambangkan bunyi e-pepet di awal perkataan ini.',4500)}
+/* Babak 4: e-taling */
+op(W,0,600);tw(U,{left:'125%'},1500,'ease-in');await sleep(1600);
+await cut(()=>{setScene('green');W.innerHTML='';U.style.left='-25%'});
+fly(50,5,2000);sfx.fly();await sleep(2100);
+await showWords([B4[0]],{gap:600});
+{const y=$('#words .jw .hl'),p=pos(y),jw=$('#words .jw');fly(p.x,5,1500);await sleep(1600);
+ face('up');wag(.4);await closeup();await talk('Hehehe! Oyen nak curi huruf ini pula!',3000);
+ await zm(1,0,0,900);
+ cap.innerHTML='Huhh! Lihat Oyen mencuri huruf Ya...';op(cap,1,400);const q=pos(y);press();beam(true,q.y+2);sfx.laser();await sleep(800);
+ sfx.suck();pulse(y);jig(jw,1300);await sleep(1400);
+ bm.style.filter='brightness(1.9)';sfx.suck();sfx.grr();jig(jw,1300);shake(U,500);await sleep(1400);
+ face('shock');tw(hd,{transform:'scale(1.12)'},300);shake(U,1500);sfx.fail();sfx.grr();await sleep(600);beam(false);bm.style.filter='';smoke();await sleep(1100);
+ tw(hd,{transform:'scale(1)'},200);tw(oy,{transform:'translateY(78px)'},300,'ease-in');op(pw,0,200);await sleep(900);
+ face('sad');wag(2.5);tw(oy,{transform:'translateY(0px)'},900,'ease-out');op(pw,1,400);await sleep(1100);
+ sfx.meow();await talk('MEOWWW!',1500);await talk('Kenapa huruf Ya tak boleh dicuri?!',2800);face('puz');
+ op(cap,0,400);await sleep(600)}
+/* Babak akhir */
+op(W,0,600);await sleep(700);
+await cut(()=>{setScene('night');W.innerHTML='';U.style.left='50%';U.style.top='22%';U.style.scale=1;wag(1.6);face('puz')});
+await zm(1.25,50,30,1500);await sleep(900);face('n');
+
+
+
+face('puz');await talk('Meow... Kenapa Oyen tak boleh curi huruf Ya tadi?',3600);await talk('Apa rahsianya agaknya?',2600);face('happy');
+wave();await talk('Meow! Jumpa lagi!',2400);
+zm(1,0,0,1200);sfx.fly();tw(U,{left:'82%',top:'9%',scale:.07},4500,'ease-in');await sleep(4600);
+op($('#end'),1,1500);await sleep(2500)}
+async function pepet(w,first){
+await showWords([w],{nojw:1,gap:800});
+const e=$('#words .ru .hl');say(w.k);pulse(e);face('up');
+const p=pos(e);fly(p.x,5,1800);sfx.fly();await sleep(1900);
+beam(true,p.y+2);bm.classList.add('sc');sfx.ping();await sleep(1000);bm.classList.remove('sc');beam(false);
+if(first){await closeup();paw();await sleep(900);await zm(1,0,0,900)}else await sleep(600);
+cap.innerHTML='Huhh! Lihat Oyen mencuri huruf e...';op(cap,1,400);const q=pos(e);beam(true,q.y+2);sfx.laser();press();await sleep(800);
+await steal(e);beam(false);face('happy');hug();sfx.happy();await sleep(900);
+op($('#words .jw'),1,1500);say(w.k);await sleep(1700);
+await giveBack(e);face('n');
+op(cap,0,400);await sleep(500);
+}
+/* ---------- kawalan ---------- */
+function start(){tok++;reset();story().catch(e=>{if(e!=='x')console.error(e)})}
+$('#play').onclick=()=>{ac();speechSynthesis&&speechSynthesis.getVoices();$('#poster').style.display='none';start()};
+$('#b2').onclick=()=>{ac();$('#poster').style.display='none';start()};
+$('#b1').onclick=()=>{paused=!paused;$('#b1').textContent=paused?'▶':'⏸';document.getAnimations().forEach(a=>paused?a.pause():a.playState==='paused'&&a.play());if(AC)paused?AC.suspend():AC.resume();window.speechSynthesis&&(paused?speechSynthesis.pause():speechSynthesis.resume())};
+$('#b3').onclick=()=>{mute=!mute;$('#b3').textContent=mute?'🔇':'🔊';if(M)M.gain.value=mute?0:1;window.speechSynthesis&&speechSynthesis.cancel()};
+btn.addEventListener('click',()=>{if(btn.textContent==='Tonton semula'&&!paused)start()});
+/* ---------- permulaan ---------- */
+for(let i=0;i<60;i++){const s=document.createElement('i'),z=.25+Math.random()*.4;s.className='star';s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*58}%;width:${z}cqw;height:${z}cqw;animation-delay:-${Math.random()*3}s`;cam.prepend(s)}
+{let d='M0 900L0 850';for(let x=0;x<1600;x+=22)d+=`L${x+11} ${795+Math.random()*25}L${x+22} 850`;$('#grp').setAttribute('d',d+'L1600 900Z')}
+reset();fd.style.opacity=0;U.style.cssText='left:50%;top:8%';oy.style.transform='translateY(0)';pw.style.opacity=1;face('sly');
+</script></body></html>
